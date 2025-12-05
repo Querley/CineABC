@@ -1,0 +1,20 @@
+<%- include("../partials/header") %>
+<div class="comprovante-container">
+<div class="container mt-5 p-4 border rounded" style="max-width: 500px;">
+    <h2 class="text-center mb-4">Comprovante de Ingresso</h2>
+
+    <p><strong>ID da Venda:</strong> <%= venda.id %></p>
+    <p><strong>Filme:</strong> <%= venda.filme %></p>
+    <p><strong>Sala:</strong> <%= venda.sala %></p>
+    <p><strong>Data:</strong> <%= venda.data.toISOString().split('T')[0] %></p>
+    <p><strong>Hora:</strong> <%= venda.hora %></p>
+    <p><strong>Poltrona:</strong> <%= venda.poltrona %></p>
+    <p><strong>Tipo de Ingresso:</strong> <%= venda.tipo_ingresso %></p>
+
+    <div class="text-center mt-4">
+        <button onclick="window.print()" class="btn btn-success">Imprimir</button>
+        <a href="/vendas" class="btn btn-secondary">Voltar</a>
+    </div>
+</div>
+
+<%- include("../partials/footer") %>

@@ -1,0 +1,52 @@
+<%- include("../partials/header") %>
+
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">Vendas Realizadas</h2>
+
+    <div class="mb-3 text-center">
+        <a href="/vendas/create" class="btn btn-primary btn-lg">Nova Venda</a>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body table-responsive">
+            <table class="table table-striped table-bordered table-hover align-middle">
+                <thead class="table-dark text-center">
+                <tr>
+                    <th>ID</th>
+                    <th>Filme</th>
+                    <th>Sala</th>
+                    <th>Data</th>
+                    <th>Hora</th>
+                    <th>Poltrona</th>
+                    <th>Tipo de Ingresso</th>
+                    <th>Ação</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% if (vendas.length === 0) { %>
+                    <tr>
+                        <td colspan="8" class="text-center">Nenhuma venda realizada ainda</td>
+                    </tr>
+                <% } else { %>
+                    <% vendas.forEach(v => { %>
+                        <tr class="text-center">
+                            <td><%= v.id %></td>
+                            <td><%= v.filme %></td>
+                            <td><%= v.sala %></td>
+                            <td><%= v.data.toISOString().split('T')[0] %></td>
+                            <td><%= v.hora %></td>
+                            <td><%= v.poltrona %></td>
+                            <td><%= v.tipo_ingresso %></td>
+                            <td>
+                                <a href="/vendas/comprovante/<%= v.id %>" class="btn btn-info btn-sm">Visualizar / Imprimir</a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<%- include("../partials/footer") %>

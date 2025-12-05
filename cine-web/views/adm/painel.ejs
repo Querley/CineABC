@@ -1,0 +1,61 @@
+<%- include("../partials/header") %>
+
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">Painel Administrativo</h2>
+
+    <div class="row g-4">
+        <div class="col-md-3">
+            <a href="/filmes" class="text-decoration-none">
+                <div class="card text-center shadow-sm h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Filmes</h5>
+                        <p class="card-text">Gerenciar filmes cadastrados</p>
+                        <span class="btn btn-primary">Acessar</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-3">
+            <a href="/salas" class="text-decoration-none">
+                <div class="card text-center shadow-sm h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Salas</h5>
+                        <p class="card-text">Gerenciar salas de cinema</p>
+                        <span class="btn btn-primary">Acessar</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-3">
+            <a href="/sessoes" class="text-decoration-none">
+                <div class="card text-center shadow-sm h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Sessões</h5>
+                        <p class="card-text">Gerenciar sessões de filmes</p>
+                        <span class="btn btn-primary">Acessar</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-3">
+            <a href="/vendas" class="text-decoration-none">
+                <div class="card text-center shadow-sm h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Vendas</h5>
+                        <p class="card-text">Visualizar ingressos vendidos</p>
+                        <span class="btn btn-primary">Acessar</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="mt-5 text-center">
+        <a href="/dashboard" class="btn btn-success btn-lg">Ver Dashboard de Estatísticas</a>
+    </div>
+</div>
+
+<%- include("../partials/footer") %>

@@ -1,0 +1,43 @@
+<%- include("../partials/header") %>
+
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">Filmes Cadastrados</h2>
+
+    <div class="mb-3 text-center">
+        <a href="/filmes/create" class="btn btn-primary btn-lg">Cadastrar Novo Filme</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered align-middle">
+            <thead class="table-dark text-center">
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Duração</th>
+                <th>Classificação</th>
+                <th>Gênero</th>
+                <th>Ações</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% filmes.forEach(filme => { %>
+                <tr class="text-center">
+                    <td><%= filme.id %></td>
+                    <td><%= filme.titulo %></td>
+                    <td><%= filme.duracao %> min</td>
+                    <td><%= filme.classificacao %></td>
+                    <td><%= filme.genero %></td>
+                    <td>
+                        <a href="/filmes/edit/<%= filme.id %>" class="btn btn-warning btn-sm me-1">Editar</a>
+                        <form action="/filmes/delete/<%= filme.id %>" method="post" style="display:inline-block">
+                            <button type="submit" class="btn btn-danger btn-sm">Deletar</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<%- include("../partials/footer") %>

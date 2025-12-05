@@ -1,0 +1,74 @@
+<%- include("../partials/header") %>
+
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">Cadastrar Sessão</h2>
+
+    <div class="card shadow-sm mx-auto" style="max-width: 900px;">
+        <div class="card-body">
+            <form action="/sessoes/create" method="post">
+
+                <h5>Escolher Filme</h5>
+                <div class="table-responsive mb-3">
+                    <table class="table table-bordered table-striped align-middle">
+                        <thead class="table-dark text-center">
+                        <tr>
+                            <th>ID</th>
+                            <th>Título</th>
+                            <th>Selecionar</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <% filmes.forEach(f => { %>
+                            <tr class="text-center">
+                                <td><%= f.id %></td>
+                                <td><%= f.titulo %></td>
+                                <td><input type="radio" name="filme_id" value="<%= f.id %>" required></td>
+                            </tr>
+                        <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h5>Escolher Sala</h5>
+                <div class="table-responsive mb-3">
+                    <table class="table table-bordered table-striped align-middle">
+                        <thead class="table-dark text-center">
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Selecionar</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <% salas.forEach(s => { %>
+                            <tr class="text-center">
+                                <td><%= s.id %></td>
+                                <td><%= s.nome %></td>
+                                <td><input type="radio" name="sala_id" value="<%= s.id %>" required></td>
+                            </tr>
+                        <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="row g-3 mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Data</label>
+                        <input type="date" name="data_sessao" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Hora</label>
+                        <input type="time" name="hora" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button class="btn btn-success w-50">Cadastrar Sessão</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include("../partials/footer") %>

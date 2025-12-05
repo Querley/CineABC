@@ -1,0 +1,48 @@
+<%- include("./partials/header") %>
+<div class="home-fullscreen">
+<div id="carouselFilmes"
+        class="carousel slide carousel-fade"
+        data-bs-ride="carousel"
+        data-bs-interval="5000">
+
+    <div class="carousel-inner">
+
+        <% filmes.forEach((f, index) => { %>
+
+            <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
+
+                <!-- Imagem -->
+                <img src="/img/filmes/<%= f.img %>" class="d-block w-100">
+
+                <!-- Overlay escura -->
+                <div class="hero-overlay"></div>
+
+                <!-- Texto -->
+                <div class="carousel-caption text-start">
+                    <h3 class="display-4"><%= f.titulo %></h3>
+                    <p class="lead">
+                        <%= f.genero %> — <%= f.duracao %> min
+                    </p>
+
+                    <a href="/vendas/create" class="btn btn-light btn-hero">
+                        Comprar ingresso
+                    </a>
+                </div>
+            </div>
+
+        <% }) %>
+
+    </div>
+
+    <!-- Controles -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselFilmes" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselFilmes" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+
+</div>
+</div>
+<%- include("./partials/footer") %>

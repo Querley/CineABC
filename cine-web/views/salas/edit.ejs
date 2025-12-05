@@ -1,0 +1,29 @@
+<%- include("../partials/header") %>
+
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">Editar Sala</h2>
+
+    <div class="card shadow-sm mx-auto" style="max-width: 600px;">
+        <div class="card-body">
+            <form action="/salas/edit/<%= sala.id %>" method="post">
+
+                <div class="mb-3">
+                    <label class="form-label">Nome da Sala</label>
+                    <input type="text" name="nome" class="form-control" value="<%= sala.nome %>" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Capacidade</label>
+                    <input type="number" name="capacidade" class="form-control" value="<%= sala.capacidade %>" required>
+                </div>
+
+                <div class="text-center">
+                    <button class="btn btn-success w-50">Salvar Alterações</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include("../partials/footer") %>

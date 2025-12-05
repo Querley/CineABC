@@ -1,0 +1,65 @@
+<%- include("../partials/header") %>
+
+<h1>Comprar Ingresso</h1>
+
+<form id="vendaForm" action="/vendas/create" method="post" class="w-75">
+
+    <label class="form-label mt-2">Sessão</label>
+    <select name="sessao_id" id="sessaoSelect" class="form-control" required>
+        <option value="">Selecione a sessão</option>
+        <% sessoes.forEach(s => { %>
+            <option value="<%= s.id %>">
+                <%= s.filme %> | Sala: <%= s.sala %> | Data: <%= s.data.toISOString().split('T')[0] %> | Hora: <%= s.hora %>
+            </option>
+        <% }) %>
+    </select>
+
+    <div id="poltronasContainer" class="mt-3"></div>
+
+    <label class="form-label mt-2">Tipo de ingresso</label>
+    <select name="tipo_ingresso" class="form-control" required>
+        <option value="inteira">Inteira</option>
+        <option value="meia">Meia</option>
+    </select>
+
+    <input type="hidden" name="poltrona" id="poltronaInput">
+
+    <button class="btn btn-success mt-3" type="submit">Comprar Ingresso</button>
+</form>
+
+<script>
+    const sessaoSelect = document.getElementById('sessaoSelect');
+    const poltronasContainer = document.getElementById('poltronasContainer');
+    const poltronaInput = document.getElementById('poltronaInput');
+
+    sessaoSelect.addEventListener('change', async () => {
+        poltronasContainer.innerHTML = '';
+        const sessao_id = sessaoSelect.value;
+        if (!sessao_id) return;
+
+        const res = await fetch(`/vendas/poltronas/${sessao_id}`);
+        const data = await res.json();
+
+        const totalPoltronas = data.capacidade || 0;
+        const ocupadas = data.ocupadas || [];
+
+        for (let i = 1; i <= totalPoltronas; i++) {
+            const poltrona = 'P' + i;
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.textContent = poltrona;
+            button.className = ocupadas.includes(poltrona) ? 'btn btn-danger m-1' : 'btn btn-primary m-1';
+            button.disabled = ocupadas.includes(poltrona);
+
+            button.addEventListener('click', () => {
+                poltronaInput.value = poltrona;
+                Array.from(poltronasContainer.querySelectorAll('button')).forEach(b => b.classList.remove('btn-success'));
+                button.classList.add('btn-success');
+            });
+
+            poltronasContainer.appendChild(button);
+        }
+    });
+</script>
+
+<%- include("../partials/footer") %>

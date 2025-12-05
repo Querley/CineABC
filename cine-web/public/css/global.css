@@ -1,0 +1,157 @@
+/* ======== GLOBAL RESET ======== */
+body, html {
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+	min-height: 100%;
+}
+
+/* SOMENTE a home tem altura 100vh */
+.home-fullscreen {
+	min-height: 100vh;
+}
+
+/* ======== HOME: CARROSSEL ======== */
+.carousel-item img {
+	height: 100vh;
+	object-fit: cover;
+}
+
+/* Sobreposição escura para melhorar legibilidade */
+.hero-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.35);
+	z-index: 1;
+}
+
+/* Legenda */
+.carousel-caption {
+	z-index: 2;
+	backdrop-filter: blur(10px);
+	background: rgba(0, 0, 0, 0.45);
+	padding: 20px 30px;
+	border-radius: 12px;
+	max-width: 420px; /* largura máxima */
+	left: 60px; /* posição mais clara */
+	right: auto; /* remove expansão para direita */
+	bottom: 80px;
+	text-align: left;
+}
+
+/* Animação suave no texto */
+.carousel-caption h3,
+.carousel-caption p {
+	animation: fadeInUp 0.8s ease forwards;
+	opacity: 0;
+}
+
+@keyframes fadeInUp {
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+}
+
+/* Botão */
+.btn-hero {
+	padding: 12px 26px;
+	border-radius: 50px;
+	font-weight: bold;
+	transition: 0.2s;
+}
+
+.btn-hero:hover {
+	transform: scale(1.05);
+	background: white;
+	color: black;
+}
+
+
+/* Comprovante*/
+.comprovante-container {
+	max-width: 500px;
+	margin: 50px auto;
+	padding: 25px;
+	background: #1c1c1c;
+	border-radius: 15px;
+	box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+	color: #fff;
+}
+
+.comprovante-container h2 {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.comprovante-container p {
+	font-size: 1.1rem;
+}
+
+.comprovante-container .btn {
+	min-width: 120px;
+}
+#vendaForm {
+	max-width: 600px;
+	margin: 50px auto;
+	padding: 25px;
+	background: #1c1c1c;
+	border-radius: 15px;
+	box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+#vendaForm label {
+	font-weight: 600;
+	color: #fff;
+}
+
+#vendaForm select,
+#vendaForm button {
+	margin-top: 10px;
+}
+#poltronasContainer button {
+	min-width: 40px;
+	min-height: 40px;
+}
+.table thead {
+	background-color: #333;
+	color: #fff;
+}
+
+.table tbody tr:hover {
+	background-color: #2a2a2a;
+}
+
+.table .btn {
+	min-width: 100px;
+}
+.adm-login-container {
+	max-width: 400px;
+	margin: 80px auto;
+	padding: 25px;
+	background: #1c1c1c;
+	border-radius: 15px;
+	box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+	color: #fff;
+	text-align: center;
+}
+.adm-login-container input {
+	margin-top: 10px;
+}
+.list-group-item {
+	background: #1c1c1c;
+	color: #fff;
+	margin-bottom: 5px;
+	transition: 0.2s;
+}
+
+.list-group-item:hover {
+	background: #333;
+}

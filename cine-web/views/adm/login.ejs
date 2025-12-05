@@ -1,0 +1,14 @@
+<%- include("../partials/header") %>
+
+<div class="adm-login-container">
+    <h2>Login Administrativo</h2>
+    <form action="/adm/login" method="post">
+        <label>Usuário</label>
+        <input type="text" name="user" class="form-control" required>
+        <label>Senha</label>
+        <input type="password" name="password" class="form-control" required>
+        <button type="submit" class="btn btn-success mt-3 w-100">Entrar</button>
+    </form>
+</div>
+
+<%- include("../partials/footer") %>
