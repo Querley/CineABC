@@ -74,39 +74,54 @@
 
 ## 🔹 Instalação
 
-1.  Clone o repositório:
+1.  Clonar o repositório
+```
+git clone [https://github.com/seu-usuario/cineweb.git](https://github.com/seu-usuario/cineweb.git)
+cd cineweb
+```
 
-    ```bash
-    git clone [https://github.com/seu-usuario/cineweb.git](https://github.com/seu-usuario/cineweb.git)
-    cd cineweb
-    ```
+2.  Instalar as dependências
 
-2.  Instale as dependências:
+Abra o terminal ou prompt de comando e crie um banco vazio:
+```
+createdb -U postgres nomedobanco
+```
+Substitua nomedobanco pelo nome que você deseja dar ao banco.
+postgres é o usuário padrão do PostgreSQL; se o seu projeto tiver outro usuário, use ele.
 
-    ```bash
-    npm install
-    ```
+3.  Restaurar o dump
+Em seguida, restaure o arquivo de dump fornecido no banco recém-criado:
+```
+PGPASSWORD='sua_senha' pg_restore -U postgres -d nomedobanco -v /caminho/para/backup_file.dump
+```
 
-3.  Configure o banco de dados PostgreSQL e crie um arquivo **`.env`** na raiz do projeto com suas credenciais:
+- sua_senha → senha do usuário PostgreSQL.
+- /caminho/para/backup_file.dump → caminho completo do arquivo de dump no computador.
+- -v → modo verbose, para mostrar o progresso da restauração.
 
-    ```ini
-    DB_USER=seu_usuario
-    DB_PASSWORD=sua_senha
-    DB_HOST=localhost
-    DB_NAME=cineweb
-    ```
+Ao final deste passo, todas as tabelas e dados estarão disponíveis no banco.
 
-4.  Rode o servidor:
+4.  Instalar dependências do Node.js
 
-    ```bash
-    node server.js
-    ```
+Certifique-se de que os arquivos package.json e package-lock.json estão no projeto. Então, instale as dependências:
+```
+npm install
+```
+Isso vai baixar todos os módulos necessários para o projeto funcionar corretamente.
 
-5.  Acesse no navegador:
+5.  Rodar o projeto
 
-    ```
-    http://localhost:3000
-    ```
+Após instalar as dependências, inicie o servidor:
+ ```
+ npm run dev
+ ```
+O script dev deve estar configurado no package.json assim:
+```
+"scripts": {
+  "dev": "nodemon server.js"
+}
+```
+O servidor Node.js será iniciado, e você poderá acessar o sistema no navegador, geralmente em http://localhost:3000. O nodemon reinicia o servidor automaticamente sempre que há alterações no código.
 
 ### 🔑 Acesso Admin
 
