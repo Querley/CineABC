@@ -2,6 +2,8 @@
 
 **CineWeb** é um sistema web para **gerenciamento de cinema**, desenvolvido com **Node.js**, **Express**, **EJS** e **PostgreSQL**. O projeto permite cadastrar filmes, salas e sessões, realizar vendas de ingressos e acompanhar estatísticas em um painel administrativo.
 
+Acesse o [CineABC](https://cineabc.onrender.com).
+
 ---
 
 ## 🔹 Funcionalidades
