@@ -1,22 +1,43 @@
+<!-- Inclui o header padrão (evita repetir o cabeçalho em todas as páginas) -->
 <%- include("../partials/header") %>
 
 <div class="container mt-5">
+
+    <!-- Título da página de edição de sala -->
     <h2 class="mb-4 text-center">Editar Sala</h2>
 
+    <!-- Card central contendo o formulário -->
     <div class="card shadow-sm mx-auto" style="max-width: 600px;">
         <div class="card-body">
+
+            <!-- Formulário de edição preenchido com os dados da sala -->
             <form action="/salas/edit/<%= sala.id %>" method="post">
 
+                <!-- Campo: Nome da sala -->
                 <div class="mb-3">
                     <label class="form-label">Nome da Sala</label>
-                    <input type="text" name="nome" class="form-control" value="<%= sala.nome %>" required>
+                    <input
+                            type="text"
+                            name="nome"
+                            class="form-control"
+                            value="<%= sala.nome %>"
+                            required
+                    >
                 </div>
 
+                <!-- Campo: Capacidade -->
                 <div class="mb-3">
                     <label class="form-label">Capacidade</label>
-                    <input type="number" name="capacidade" class="form-control" value="<%= sala.capacidade %>" required>
+                    <input
+                            type="number"
+                            name="capacidade"
+                            class="form-control"
+                            value="<%= sala.capacidade %>"
+                            required
+                    >
                 </div>
 
+                <!-- Botão para salvar alterações -->
                 <div class="text-center">
                     <button class="btn btn-success w-50">Salvar Alterações</button>
                 </div>
@@ -26,4 +47,5 @@
     </div>
 </div>
 
+<!-- Inclui o footer padrão (mantém o mesmo rodapé em todas as páginas) -->
 <%- include("../partials/footer") %>

@@ -1,12 +1,17 @@
+<!-- Inclui o header padrão (evita repetir o cabeçalho em todas as páginas) -->
 <%- include("../partials/header") %>
 
 <div class="container mt-5">
+
+    <!-- Título da página de listagem de sessões -->
     <h2 class="mb-4 text-center">Sessões Cadastradas</h2>
 
+    <!-- Botão para cadastrar nova sessão -->
     <div class="mb-3 text-center">
         <a href="/sessoes/create" class="btn btn-primary btn-lg">Cadastrar Nova Sessão</a>
     </div>
 
+    <!-- Tabela de sessões -->
     <div class="table-responsive">
         <table class="table table-striped table-bordered align-middle">
             <thead class="table-dark text-center">
@@ -19,6 +24,7 @@
                 <th>Ações</th>
             </tr>
             </thead>
+
             <tbody>
             <% sessoes.forEach(sessao => { %>
                 <tr class="text-center">
@@ -28,7 +34,10 @@
                     <td><%= sessao.data.toISOString().split('T')[0] %></td>
                     <td><%= sessao.hora %></td>
                     <td>
+                        <!-- Botão para editar a sessão -->
                         <a href="/sessoes/edit/<%= sessao.id %>" class="btn btn-warning btn-sm me-1">Editar</a>
+
+                        <!-- Formulário para deletar a sessão -->
                         <form action="/sessoes/delete/<%= sessao.id %>" method="post" style="display:inline-block">
                             <button type="submit" class="btn btn-danger btn-sm">Deletar</button>
                         </form>
@@ -40,4 +49,5 @@
     </div>
 </div>
 
+<!-- Inclui o footer padrão (mantém o mesmo rodapé em todas as páginas) -->
 <%- include("../partials/footer") %>

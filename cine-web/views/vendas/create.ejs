@@ -1,9 +1,13 @@
+<!-- Inclui o header padrão (evita repetir o cabeçalho em todas as páginas) -->
 <%- include("../partials/header") %>
 
+<!-- Título da página -->
 <h1>Comprar Ingresso</h1>
 
+<!-- Formulário de compra de ingresso -->
 <form id="vendaForm" action="/vendas/create" method="post" class="w-75">
 
+    <!-- Seleção da sessão -->
     <label class="form-label mt-2">Sessão</label>
     <select name="sessao_id" id="sessaoSelect" class="form-control" required>
         <option value="">Selecione a sessão</option>
@@ -14,35 +18,42 @@
         <% }) %>
     </select>
 
+    <!-- Container para exibir as poltronas disponíveis -->
     <div id="poltronasContainer" class="mt-3"></div>
 
+    <!-- Seleção do tipo de ingresso -->
     <label class="form-label mt-2">Tipo de ingresso</label>
     <select name="tipo_ingresso" class="form-control" required>
         <option value="inteira">Inteira</option>
         <option value="meia">Meia</option>
     </select>
 
+    <!-- Input oculto para armazenar a poltrona selecionada -->
     <input type="hidden" name="poltrona" id="poltronaInput">
 
+    <!-- Botão de envio do formulário -->
     <button class="btn btn-success mt-3" type="submit">Comprar Ingresso</button>
 </form>
 
+<!-- Script para gerar poltronas dinamicamente com base na sessão selecionada -->
 <script>
     const sessaoSelect = document.getElementById('sessaoSelect');
     const poltronasContainer = document.getElementById('poltronasContainer');
     const poltronaInput = document.getElementById('poltronaInput');
 
     sessaoSelect.addEventListener('change', async () => {
-        poltronasContainer.innerHTML = '';
+        poltronasContainer.innerHTML = ''; // Limpa poltronas antigas
         const sessao_id = sessaoSelect.value;
         if (!sessao_id) return;
 
+        // Busca informações da sessão (capacidade e poltronas ocupadas)
         const res = await fetch(`/vendas/poltronas/${sessao_id}`);
         const data = await res.json();
 
         const totalPoltronas = data.capacidade || 0;
         const ocupadas = data.ocupadas || [];
 
+        // Cria botões para cada poltrona
         for (let i = 1; i <= totalPoltronas; i++) {
             const poltrona = 'P' + i;
             const button = document.createElement('button');
@@ -51,6 +62,7 @@
             button.className = ocupadas.includes(poltrona) ? 'btn btn-danger m-1' : 'btn btn-primary m-1';
             button.disabled = ocupadas.includes(poltrona);
 
+            // Seleciona a poltrona clicada
             button.addEventListener('click', () => {
                 poltronaInput.value = poltrona;
                 Array.from(poltronasContainer.querySelectorAll('button')).forEach(b => b.classList.remove('btn-success'));
@@ -62,4 +74,5 @@
     });
 </script>
 
+<!-- Inclui o footer padrão (mantém o mesmo rodapé em todas as páginas) -->
 <%- include("../partials/footer") %>

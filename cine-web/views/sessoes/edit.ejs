@@ -1,12 +1,19 @@
+<!-- Inclui o header padrão (evita repetir o cabeçalho em todas as páginas) -->
 <%- include("../partials/header") %>
 
 <div class="container mt-5">
+
+    <!-- Título da página de edição de sessão -->
     <h2 class="mb-4 text-center">Editar Sessão</h2>
 
+    <!-- Card central contendo o formulário -->
     <div class="card shadow-sm mx-auto" style="max-width: 900px;">
         <div class="card-body">
+
+            <!-- Formulário de edição de sessão -->
             <form action="/sessoes/edit/<%= sessao.id %>" method="post">
 
+                <!-- Seleção de filme -->
                 <h5>Escolher Filme</h5>
                 <div class="table-responsive mb-3">
                     <table class="table table-bordered table-striped align-middle">
@@ -23,7 +30,14 @@
                                 <td><%= f.id %></td>
                                 <td><%= f.titulo %></td>
                                 <td>
-                                    <input type="radio" name="filme_id" value="<%= f.id %>" <%= f.id === sessao.filme_id ? "checked" : "" %> required>
+                                    <!-- Marca o filme selecionado atualmente -->
+                                    <input
+                                            type="radio"
+                                            name="filme_id"
+                                            value="<%= f.id %>"
+                                            <%= f.id === sessao.filme_id ? "checked" : "" %>
+                                            required
+                                    >
                                 </td>
                             </tr>
                         <% }) %>
@@ -31,6 +45,7 @@
                     </table>
                 </div>
 
+                <!-- Seleção de sala -->
                 <h5>Escolher Sala</h5>
                 <div class="table-responsive mb-3">
                     <table class="table table-bordered table-striped align-middle">
@@ -47,7 +62,14 @@
                                 <td><%= s.id %></td>
                                 <td><%= s.nome %></td>
                                 <td>
-                                    <input type="radio" name="sala_id" value="<%= s.id %>" <%= s.id === sessao.sala_id ? "checked" : "" %> required>
+                                    <!-- Marca a sala selecionada atualmente -->
+                                    <input
+                                            type="radio"
+                                            name="sala_id"
+                                            value="<%= s.id %>"
+                                            <%= s.id === sessao.sala_id ? "checked" : "" %>
+                                            required
+                                    >
                                 </td>
                             </tr>
                         <% }) %>
@@ -55,17 +77,31 @@
                     </table>
                 </div>
 
+                <!-- Campos de data e hora da sessão -->
                 <div class="row g-3 mb-3">
                     <div class="col-md-6">
                         <label class="form-label">Data</label>
-                        <input type="date" name="data_sessao" class="form-control" value="<%= sessao.data.toISOString().split('T')[0] %>" required>
+                        <input
+                                type="date"
+                                name="data_sessao"
+                                class="form-control"
+                                value="<%= sessao.data.toISOString().split('T')[0] %>"
+                                required
+                        >
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Hora</label>
-                        <input type="time" name="hora" class="form-control" value="<%= sessao.hora %>" required>
+                        <input
+                                type="time"
+                                name="hora"
+                                class="form-control"
+                                value="<%= sessao.hora %>"
+                                required
+                        >
                     </div>
                 </div>
 
+                <!-- Botão para salvar alterações -->
                 <div class="text-center">
                     <button class="btn btn-success w-50">Salvar Alterações</button>
                 </div>
@@ -75,4 +111,5 @@
     </div>
 </div>
 
+<!-- Inclui o footer padrão (mantém o mesmo rodapé em todas as páginas) -->
 <%- include("../partials/footer") %>

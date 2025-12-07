@@ -1,9 +1,15 @@
+<!-- Inclui o header padrão (evita repetir o cabeçalho em todas as páginas) -->
 <%- include("../partials/header") %>
 
 <div class="container mt-5">
+
+    <!-- Título do painel administrativo -->
     <h2 class="mb-4 text-center">Painel Administrativo</h2>
 
+    <!-- Grid principal com os módulos de gerenciamento -->
     <div class="row g-4">
+
+        <!-- Card: Gerenciar Filmes -->
         <div class="col-md-3">
             <a href="/filmes" class="text-decoration-none">
                 <div class="card text-center shadow-sm h-100">
@@ -16,6 +22,7 @@
             </a>
         </div>
 
+        <!-- Card: Gerenciar Salas -->
         <div class="col-md-3">
             <a href="/salas" class="text-decoration-none">
                 <div class="card text-center shadow-sm h-100">
@@ -28,6 +35,7 @@
             </a>
         </div>
 
+        <!-- Card: Gerenciar Sessões -->
         <div class="col-md-3">
             <a href="/sessoes" class="text-decoration-none">
                 <div class="card text-center shadow-sm h-100">
@@ -40,6 +48,7 @@
             </a>
         </div>
 
+        <!-- Card: Visualizar Vendas -->
         <div class="col-md-3">
             <a href="/vendas" class="text-decoration-none">
                 <div class="card text-center shadow-sm h-100">
@@ -51,11 +60,17 @@
                 </div>
             </a>
         </div>
+
     </div>
 
+    <!-- Botão para acessar o dashboard -->
     <div class="mt-5 text-center">
-        <a href="/dashboard" class="btn btn-success btn-lg">Ver Dashboard de Estatísticas</a>
+        <a href="/dashboard" class="btn btn-success btn-lg">
+            Ver Dashboard de Estatísticas
+        </a>
     </div>
+
 </div>
 
+<!-- Inclui o footer padrão (mantém o mesmo rodapé em todas as páginas) -->
 <%- include("../partials/footer") %>

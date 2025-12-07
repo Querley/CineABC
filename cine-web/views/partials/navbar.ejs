@@ -1,6 +1,10 @@
+<!-- Barra de navegação fixa no topo -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="height:var(--nav-height);">
     <div class="container-fluid">
+
+        <!-- Logo e título do site -->
         <a class="navbar-brand d-flex align-items-center" href="/">
+            <!-- Ícone SVG do logo -->
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" class="me-2">
                 <rect x="2" y="3" width="20" height="14" rx="2" fill="#0d6efd"/>
                 <circle cx="8.5" cy="11" r="2" fill="white"/>
@@ -9,10 +13,12 @@
             CineApp
         </a>
 
+        <!-- Botão para expandir menu em telas pequenas -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
             <span class="navbar-toggler-icon"></span>
         </button>
 
+        <!-- Links do menu -->
         <div class="collapse navbar-collapse" id="navMain">
             <ul class="navbar-nav ms-auto align-items-center">
                 <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
@@ -20,5 +26,6 @@
                 <li class="nav-item"><a class="nav-link" href="/adm">Administrativo</a></li>
             </ul>
         </div>
+
     </div>
 </nav>

@@ -1,12 +1,19 @@
+<!-- Inclui o header padrão (evita repetir o cabeçalho em todas as páginas) -->
 <%- include("../partials/header") %>
 
 <div class="container mt-5">
+
+    <!-- Título da página de cadastro de sessão -->
     <h2 class="mb-4 text-center">Cadastrar Sessão</h2>
 
+    <!-- Card central contendo o formulário -->
     <div class="card shadow-sm mx-auto" style="max-width: 900px;">
         <div class="card-body">
+
+            <!-- Formulário de criação de sessão -->
             <form action="/sessoes/create" method="post">
 
+                <!-- Seleção de filme -->
                 <h5>Escolher Filme</h5>
                 <div class="table-responsive mb-3">
                     <table class="table table-bordered table-striped align-middle">
@@ -22,13 +29,16 @@
                             <tr class="text-center">
                                 <td><%= f.id %></td>
                                 <td><%= f.titulo %></td>
-                                <td><input type="radio" name="filme_id" value="<%= f.id %>" required></td>
+                                <td>
+                                    <input type="radio" name="filme_id" value="<%= f.id %>" required>
+                                </td>
                             </tr>
                         <% }) %>
                         </tbody>
                     </table>
                 </div>
 
+                <!-- Seleção de sala -->
                 <h5>Escolher Sala</h5>
                 <div class="table-responsive mb-3">
                     <table class="table table-bordered table-striped align-middle">
@@ -44,13 +54,16 @@
                             <tr class="text-center">
                                 <td><%= s.id %></td>
                                 <td><%= s.nome %></td>
-                                <td><input type="radio" name="sala_id" value="<%= s.id %>" required></td>
+                                <td>
+                                    <input type="radio" name="sala_id" value="<%= s.id %>" required>
+                                </td>
                             </tr>
                         <% }) %>
                         </tbody>
                     </table>
                 </div>
 
+                <!-- Campos de data e hora da sessão -->
                 <div class="row g-3 mb-3">
                     <div class="col-md-6">
                         <label class="form-label">Data</label>
@@ -62,6 +75,7 @@
                     </div>
                 </div>
 
+                <!-- Botão de envio -->
                 <div class="text-center">
                     <button class="btn btn-success w-50">Cadastrar Sessão</button>
                 </div>
@@ -71,4 +85,5 @@
     </div>
 </div>
 
+<!-- Inclui o footer padrão (mantém o mesmo rodapé em todas as páginas) -->
 <%- include("../partials/footer") %>

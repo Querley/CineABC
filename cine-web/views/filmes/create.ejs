@@ -1,32 +1,43 @@
+<!-- Inclui o header padrão (evita repetir o cabeçalho em todas as páginas) -->
 <%- include("../partials/header") %>
 
 <div class="container mt-5">
+
+    <!-- Título da página de cadastro -->
     <h2 class="mb-4 text-center">Cadastrar Filme</h2>
 
+    <!-- Card central contendo o formulário -->
     <div class="card shadow-sm mx-auto" style="max-width: 600px;">
         <div class="card-body">
+
+            <!-- Formulário de criação de filme -->
             <form action="/filmes/create" method="post">
 
+                <!-- Campo: Título -->
                 <div class="mb-3">
                     <label class="form-label">Título</label>
                     <input type="text" name="titulo" class="form-control" required>
                 </div>
 
+                <!-- Campo: Duração -->
                 <div class="mb-3">
                     <label class="form-label">Duração (minutos)</label>
                     <input type="number" name="duracao" class="form-control" required>
                 </div>
 
+                <!-- Campo: Classificação -->
                 <div class="mb-3">
                     <label class="form-label">Classificação</label>
                     <input type="text" name="classificacao" class="form-control">
                 </div>
 
+                <!-- Campo: Gênero -->
                 <div class="mb-3">
                     <label class="form-label">Gênero</label>
                     <input type="text" name="genero" class="form-control">
                 </div>
 
+                <!-- Botão de envio -->
                 <div class="text-center">
                     <button class="btn btn-success w-50">Cadastrar</button>
                 </div>
@@ -36,4 +47,5 @@
     </div>
 </div>
 
+<!-- Inclui o footer padrão (mantém o mesmo rodapé em todas as páginas) -->
 <%- include("../partials/footer") %>

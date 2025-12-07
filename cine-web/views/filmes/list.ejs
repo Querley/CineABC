@@ -1,12 +1,17 @@
+<!-- Inclui o header padrão (evita repetir o cabeçalho em todas as páginas) -->
 <%- include("../partials/header") %>
 
 <div class="container mt-5">
+
+    <!-- Título da página de listagem de filmes -->
     <h2 class="mb-4 text-center">Filmes Cadastrados</h2>
 
+    <!-- Botão para cadastrar novo filme -->
     <div class="mb-3 text-center">
         <a href="/filmes/create" class="btn btn-primary btn-lg">Cadastrar Novo Filme</a>
     </div>
 
+    <!-- Tabela de filmes -->
     <div class="table-responsive">
         <table class="table table-striped table-bordered align-middle">
             <thead class="table-dark text-center">
@@ -19,6 +24,7 @@
                 <th>Ações</th>
             </tr>
             </thead>
+
             <tbody>
             <% filmes.forEach(filme => { %>
                 <tr class="text-center">
@@ -28,7 +34,10 @@
                     <td><%= filme.classificacao %></td>
                     <td><%= filme.genero %></td>
                     <td>
+                        <!-- Botão para editar o filme -->
                         <a href="/filmes/edit/<%= filme.id %>" class="btn btn-warning btn-sm me-1">Editar</a>
+
+                        <!-- Formulário para deletar o filme -->
                         <form action="/filmes/delete/<%= filme.id %>" method="post" style="display:inline-block">
                             <button type="submit" class="btn btn-danger btn-sm">Deletar</button>
                         </form>
@@ -40,4 +49,5 @@
     </div>
 </div>
 
+<!-- Inclui o footer padrão (mantém o mesmo rodapé em todas as páginas) -->
 <%- include("../partials/footer") %>

@@ -1,14 +1,43 @@
+<!-- Inclui o header padrão (evita repetir o cabeçalho em todas as páginas) -->
 <%- include("../partials/header") %>
 
+<!-- Container da área de login administrativo -->
 <div class="adm-login-container">
+
+    <!-- Título da página -->
     <h2>Login Administrativo</h2>
+
+    <!-- Formulário de login -->
     <form action="/adm/login" method="post">
+
+        <!-- Campo de usuário -->
         <label>Usuário</label>
-        <input type="text" name="user" class="form-control" required>
+        <input
+                type="text"
+                name="user"
+                class="form-control"
+                required
+        >
+
+        <!-- Campo de senha -->
         <label>Senha</label>
-        <input type="password" name="password" class="form-control" required>
-        <button type="submit" class="btn btn-success mt-3 w-100">Entrar</button>
+        <input
+                type="password"
+                name="password"
+                class="form-control"
+                required
+        >
+
+        <!-- Botão de envio -->
+        <button
+                type="submit"
+                class="btn btn-success mt-3 w-100"
+        >
+            Entrar
+        </button>
+
     </form>
 </div>
 
+<!-- Inclui o footer padrão (mantém o mesmo rodapé em todas as páginas) -->
 <%- include("../partials/footer") %>

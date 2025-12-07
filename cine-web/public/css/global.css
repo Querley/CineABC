@@ -6,7 +6,7 @@ body, html {
 	min-height: 100%;
 }
 
-/* SOMENTE a home tem altura 100vh */
+/* SOMENTE a home tem altura total da tela */
 .home-fullscreen {
 	min-height: 100vh;
 }
@@ -28,21 +28,21 @@ body, html {
 	z-index: 1;
 }
 
-/* Legenda */
+/* Legenda do carrossel */
 .carousel-caption {
 	z-index: 2;
 	backdrop-filter: blur(10px);
 	background: rgba(0, 0, 0, 0.45);
 	padding: 20px 30px;
 	border-radius: 12px;
-	max-width: 420px; /* largura máxima */
-	left: 60px; /* posição mais clara */
-	right: auto; /* remove expansão para direita */
+	max-width: 420px;
+	left: 60px;
+	right: auto;
 	bottom: 80px;
 	text-align: left;
 }
 
-/* Animação suave no texto */
+/* Animação suave do texto */
 .carousel-caption h3,
 .carousel-caption p {
 	animation: fadeInUp 0.8s ease forwards;
@@ -50,17 +50,17 @@ body, html {
 }
 
 @keyframes fadeInUp {
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
 	from {
 		opacity: 0;
 		transform: translateY(20px);
 	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
-/* Botão */
+/* Botão do carrossel */
 .btn-hero {
 	padding: 12px 26px;
 	border-radius: 50px;
@@ -74,8 +74,7 @@ body, html {
 	color: black;
 }
 
-
-/* Comprovante*/
+/* ======== COMPROVANTE ======== */
 .comprovante-container {
 	max-width: 500px;
 	margin: 50px auto;
@@ -98,6 +97,8 @@ body, html {
 .comprovante-container .btn {
 	min-width: 120px;
 }
+
+/* ======== FORMULÁRIO DE VENDAS ======== */
 #vendaForm {
 	max-width: 600px;
 	margin: 50px auto;
@@ -116,10 +117,14 @@ body, html {
 #vendaForm button {
 	margin-top: 10px;
 }
+
+/* Botões de poltronas */
 #poltronasContainer button {
 	min-width: 40px;
 	min-height: 40px;
 }
+
+/* ======== TABELAS ======== */
 .table thead {
 	background-color: #333;
 	color: #fff;
@@ -132,6 +137,8 @@ body, html {
 .table .btn {
 	min-width: 100px;
 }
+
+/* ======== LOGIN ADMIN ======== */
 .adm-login-container {
 	max-width: 400px;
 	margin: 80px auto;
@@ -142,9 +149,12 @@ body, html {
 	color: #fff;
 	text-align: center;
 }
+
 .adm-login-container input {
 	margin-top: 10px;
 }
+
+/* ======== LISTA ======== */
 .list-group-item {
 	background: #1c1c1c;
 	color: #fff;

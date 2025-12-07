@@ -1,32 +1,65 @@
+<!-- Inclui o header padrão (evita repetir o cabeçalho em todas as páginas) -->
 <%- include("../partials/header") %>
 
 <div class="container mt-5">
+
+    <!-- Título da página de edição -->
     <h2 class="mb-4 text-center">Editar Filme</h2>
 
+    <!-- Card central contendo o formulário -->
     <div class="card shadow-sm mx-auto" style="max-width: 600px;">
         <div class="card-body">
+
+            <!-- Formulário de edição preenchido com os dados do filme -->
             <form action="/filmes/edit/<%= filme.id %>" method="post">
 
+                <!-- Campo: Título -->
                 <div class="mb-3">
                     <label class="form-label">Título</label>
-                    <input type="text" name="titulo" class="form-control" value="<%= filme.titulo %>" required>
+                    <input
+                            type="text"
+                            name="titulo"
+                            class="form-control"
+                            value="<%= filme.titulo %>"
+                            required
+                    >
                 </div>
 
+                <!-- Campo: Duração -->
                 <div class="mb-3">
                     <label class="form-label">Duração (minutos)</label>
-                    <input type="number" name="duracao" class="form-control" value="<%= filme.duracao %>" required>
+                    <input
+                            type="number"
+                            name="duracao"
+                            class="form-control"
+                            value="<%= filme.duracao %>"
+                            required
+                    >
                 </div>
 
+                <!-- Campo: Classificação -->
                 <div class="mb-3">
                     <label class="form-label">Classificação</label>
-                    <input type="text" name="classificacao" class="form-control" value="<%= filme.classificacao %>">
+                    <input
+                            type="text"
+                            name="classificacao"
+                            class="form-control"
+                            value="<%= filme.classificacao %>"
+                    >
                 </div>
 
+                <!-- Campo: Gênero -->
                 <div class="mb-3">
                     <label class="form-label">Gênero</label>
-                    <input type="text" name="genero" class="form-control" value="<%= filme.genero %>">
+                    <input
+                            type="text"
+                            name="genero"
+                            class="form-control"
+                            value="<%= filme.genero %>"
+                    >
                 </div>
 
+                <!-- Botão para salvar as alterações -->
                 <div class="text-center">
                     <button class="btn btn-success w-50">Salvar Alterações</button>
                 </div>
@@ -36,4 +69,5 @@
     </div>
 </div>
 
+<!-- Inclui o footer padrão (mantém o mesmo rodapé em todas as páginas) -->
 <%- include("../partials/footer") %>

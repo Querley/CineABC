@@ -1,20 +1,33 @@
+<!-- Inclui o header padrão (evita repetir o cabeçalho em todas as páginas) -->
 <%- include("../partials/header") %>
+
 <div class="comprovante-container">
-<div class="container mt-5 p-4 border rounded" style="max-width: 500px;">
-    <h2 class="text-center mb-4">Comprovante de Ingresso</h2>
 
-    <p><strong>ID da Venda:</strong> <%= venda.id %></p>
-    <p><strong>Filme:</strong> <%= venda.filme %></p>
-    <p><strong>Sala:</strong> <%= venda.sala %></p>
-    <p><strong>Data:</strong> <%= venda.data.toISOString().split('T')[0] %></p>
-    <p><strong>Hora:</strong> <%= venda.hora %></p>
-    <p><strong>Poltrona:</strong> <%= venda.poltrona %></p>
-    <p><strong>Tipo de Ingresso:</strong> <%= venda.tipo_ingresso %></p>
+    <!-- Card centralizado com informações do ingresso -->
+    <div class="container mt-5 p-4 border rounded" style="max-width: 500px;">
 
-    <div class="text-center mt-4">
-        <button onclick="window.print()" class="btn btn-success">Imprimir</button>
-        <a href="/vendas" class="btn btn-secondary">Voltar</a>
+        <!-- Título -->
+        <h2 class="text-center mb-4">Comprovante de Ingresso</h2>
+
+        <!-- Detalhes da venda -->
+        <p><strong>ID da Venda:</strong> <%= venda.id %></p>
+        <p><strong>Filme:</strong> <%= venda.filme %></p>
+        <p><strong>Sala:</strong> <%= venda.sala %></p>
+        <p><strong>Data:</strong> <%= venda.data.toISOString().split('T')[0] %></p>
+        <p><strong>Hora:</strong> <%= venda.hora %></p>
+        <p><strong>Poltrona:</strong> <%= venda.poltrona %></p>
+        <p><strong>Tipo de Ingresso:</strong> <%= venda.tipo_ingresso %></p>
+
+        <!-- Botões de ação -->
+        <div class="text-center mt-4">
+            <!-- Botão para imprimir comprovante -->
+            <button onclick="window.print()" class="btn btn-success">Imprimir</button>
+
+            <!-- Botão para voltar à lista de vendas -->
+            <a href="/" class="btn btn-secondary">Voltar</a>
+        </div>
     </div>
 </div>
 
+<!-- Inclui o footer padrão (mantém o mesmo rodapé em todas as páginas) -->
 <%- include("../partials/footer") %>
