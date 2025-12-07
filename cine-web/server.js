@@ -17,7 +17,7 @@ import admRoutes from "./routes/adm.js"; // Rotas da área administrativa
 dotenv.config();
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Configuração para interpretar dados enviados por formulários (POST)
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -31,9 +31,9 @@ app.set("view engine", "ejs");
 // Configura a sessão da aplicação
 app.use(
     session({
-        secret: "cineweb_secret", // chave usada para assinar a sessão
-        resave: false,            // evita salvar sessão sem necessidade
-        saveUninitialized: true   // salva sessões novas mesmo sem dados
+        secret: process.env.SESSION_SECRET || "cineweb_secret",
+        resave: false,
+        saveUninitialized: true
     })
 );
 

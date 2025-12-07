@@ -7,11 +7,8 @@ dotenv.config();
 
 // Cria e exporta a instância do cliente PostgreSQL
 export const db = new pg.Client({
-    user: process.env.DB_USER,       // usuário do banco
-    host: process.env.DB_HOST,       // endereço do servidor
-    database: process.env.DB_NAME,   // nome da database
-    password: process.env.DB_PASSWORD, // senha
-    port: process.env.DB_PORT        // porta
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false }
 });
 
 // Tenta conectar ao banco de dados
