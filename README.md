@@ -1,29 +1,29 @@
 # 🎬 CineWeb
 
-**CineWeb** é um sistema web para **gerenciamento de cinema**, desenvolvido com **Node.js, Express, EJS e PostgreSQL**. O projeto permite cadastrar filmes, salas, sessões, realizar vendas de ingressos e acompanhar estatísticas em um painel administrativo.
+**CineWeb** é um sistema web para **gerenciamento de cinema**, desenvolvido com **Node.js**, **Express**, **EJS** e **PostgreSQL**. O projeto permite cadastrar filmes, salas e sessões, realizar vendas de ingressos e acompanhar estatísticas em um painel administrativo.
 
 ---
 
 ## 🔹 Funcionalidades
 
 ### ⚙️ Administração
-* Cadastro, edição e remoção de **filmes**, **salas** e **sessões**.
+* **Cadastro, edição e remoção** de filmes, salas e sessões.
 * **Dashboard administrativo** com estatísticas:
-    * Total de vendas
-    * Vendas por filme com percentual
-    * Sessão mais e menos ocupada
+	* Total de vendas
+	* Vendas por filme (com percentual)
+	* Sessão mais e menos ocupada
 
 ### 🎟️ Vendas
-* Compra de ingressos online, com escolha de:
-    * Sessão
-    * Poltrona
-    * Tipo de ingresso (**inteira/meia**)
+* **Compra de ingressos online**, com escolha de:
+	* Sessão
+	* Poltrona
+	* Tipo de ingresso (**inteira/meia**)
 * Comprovante de ingresso para **impressão**.
-* Poltronas ocupadas são **bloqueadas automaticamente**.
+* **Poltronas ocupadas são bloqueadas automaticamente**.
 
 ### 👤 Usuário
 * Navegação pelo **catálogo de filmes**.
-* Visualização de **sessões disponíveis** e compra rápida de ingressos.
+* Visualização de **sessões disponíveis** e **compra rápida** de ingressos.
 
 ---
 
@@ -33,103 +33,95 @@
 * **Express.js** (rotas e backend)
 * **EJS** (templates dinâmicos)
 * **PostgreSQL** (banco de dados)
-* **Bootstrap 5** (estilo e UI responsiva)
+* **Bootstrap 5** (UI responsiva)
 * **Express-session** (autenticação simples para admin)
 
 ---
 
 ## 🔹 Estrutura do projeto
-
-- CineWeb/
-  - controllers/
-    - VendasController.js
-  - models/
-    - Filme.js
-    - Sala.js
-    - Sessao.js
-    - Venda.js
-  - routes/
-    - filmes.js
-    - salas.js
-    - sessoes.js
-    - vendas.js
-    - adm.js
-  - views/
-    - adm/
-      - painel.ejs
-    - dashboard/
-      - index.ejs
-    - filmes/
-      - create.ejs
-      - edit.ejs
-      - list.ejs
-    - salas/
-    - sessoes/
-    - vendas/
-  - public/
-    - css/ (estilos customizados)
-  - server.js
-  - package.json
+```
+CineWeb/
+│
+├─ controllers/
+│   └─ VendasController.js
+│
+├─ models/
+│   ├─ Filme.js
+│   ├─ Sala.js
+│   ├─ Sessao.js
+│   └─ Venda.js
+│
+├─ routes/
+│   ├─ filmes.js
+│   ├─ salas.js
+│   ├─ sessoes.js
+│   ├─ vendas.js
+│   └─ adm.js
+│
+├─ views/
+│   ├─ adm/
+│   │   └─ painel.ejs
+│   ├─ dashboard/
+│   │   └─ index.ejs
+│   ├─ filmes/
+│   │   ├─ create.ejs
+│   │   ├─ edit.ejs
+│   │   └─ list.ejs
+│   ├─ salas/
+│   ├─ sessoes/
+│   └─ vendas/
+│
+├─ public/
+│   └─ css/ (estilos customizados)
+│
+├─ server.js
+└─ package.json
+```
 ---
 
 ## 🔹 Instalação
 
-1.  Clonar o repositório
-```
-git clone [https://github.com/seu-usuario/cineweb.git](https://github.com/seu-usuario/cineweb.git)
-cd cineweb
-```
+### 1️⃣ Clonar o repositório
 
-2.  Instalar as dependências
-
-Abra o terminal ou prompt de comando e crie um banco vazio:
 ```
-createdb -U postgres nomedobanco
-```
-Substitua nomedobanco pelo nome que você deseja dar ao banco.
-postgres é o usuário padrão do PostgreSQL; se o seu projeto tiver outro usuário, use ele.
-
-3.  Restaurar o dump
-Em seguida, restaure o arquivo de dump fornecido no banco recém-criado:
-```
-PGPASSWORD='sua_senha' pg_restore -U postgres -d nomedobanco -v /caminho/para/backup_file.dump
+git clone https://github.com/Querley/CineABC.git
 ```
 
-- sua_senha → senha do usuário PostgreSQL.
-- /caminho/para/backup_file.dump → caminho completo do arquivo de dump no computador.
-- -v → modo verbose, para mostrar o progresso da restauração.
+### 2️⃣ Configurar o banco de dados
+* Você pode usar qualquer nome, usuário e senha.
+* Lembre-se de atualizar **`.env`**, **`db.js`** e **`server.js`** para refletir os valores do seu banco.
+* No aplicativo de sua escolha (pgAdmin, DBeaver, etc.), execute o conteúdo do `sql/seed.sql` para popular o banco com dados de teste.
 
-Ao final deste passo, todas as tabelas e dados estarão disponíveis no banco.
+### 3️⃣ Instalar dependências do Node.js
 
-4.  Instalar dependências do Node.js
-
-Certifique-se de que os arquivos package.json e package-lock.json estão no projeto. Então, instale as dependências:
 ```
 npm install
 ```
+
 Isso vai baixar todos os módulos necessários para o projeto funcionar corretamente.
 
-5.  Rodar o projeto
+### 4️⃣ Rodar o projeto
 
 Após instalar as dependências, inicie o servidor:
- ```
- npm run dev
- ```
+
+```
+npm run dev
+```
 O script dev deve estar configurado no package.json assim:
 ```
 "scripts": {
   "dev": "nodemon server.js"
 }
 ```
-O servidor Node.js será iniciado, e você poderá acessar o sistema no navegador, geralmente em http://localhost:3000. O nodemon reinicia o servidor automaticamente sempre que há alterações no código.
+O servidor será iniciado e você poderá acessar o sistema no navegador em http://localhost:3000. O nodemon reinicia o servidor automaticamente sempre que há alterações no código.
 
+---
 ### 🔑 Acesso Admin
-
-| Campo | Valor |
-| :--- | :--- |
-| **Usuário** | `admin` |
-| **Senha** | `1234` |
-| **Acesso** | `http://localhost:3000/admin` |
+| Campo       | Valor                         |
+|:------------|:------------------------------|
+| **Usuário** | `admin`                       |
+| **Senha**   | `1234`                        |
+| **Acesso**  | `http://localhost:3000/admin` |
 
 ---
 
@@ -137,3 +129,4 @@ O servidor Node.js será iniciado, e você poderá acessar o sistema no navegado
 
 * Sistema de múltiplos usuários com **autenticação real**.
 * Melhorias no fluxo de compra e UI da sala com **poltronas visuais**.
+* Implementar **upload de imagens** diretamente na tela de cadastro de filmes, permitindo que o administrador selecione e envie a imagem do filme ao criar ou editar um registro.
