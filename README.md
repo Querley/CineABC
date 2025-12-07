@@ -43,6 +43,10 @@
 CineWeb/
 │
 ├─ controllers/
+│   └─ DashboardController.js
+│   └─ FilmesController.js
+│   └─ SalasController.js
+│   └─ SessoesController.js
 │   └─ VendasController.js
 │
 ├─ models/
@@ -51,13 +55,10 @@ CineWeb/
 │   ├─ Sessao.js
 │   └─ Venda.js
 │
-├─ routes/
-│   ├─ filmes.js
-│   ├─ salas.js
-│   ├─ sessoes.js
-│   ├─ vendas.js
-│   └─ adm.js
-│
+├─ public/
+│   └─ css/ (estilos customizados)
+|   └─ img (posters dos filmes)
+|
 ├─ views/
 │   ├─ adm/
 │   │   └─ painel.ejs
@@ -70,9 +71,13 @@ CineWeb/
 │   ├─ salas/
 │   ├─ sessoes/
 │   └─ vendas/
-│
-├─ public/
-│   └─ css/ (estilos customizados)
+|
+├─ routes/
+│   ├─ filmes.js
+│   ├─ salas.js
+│   ├─ sessoes.js
+│   ├─ vendas.js
+│   └─ adm.js
 │
 ├─ server.js
 └─ package.json
